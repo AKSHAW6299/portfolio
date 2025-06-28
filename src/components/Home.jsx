@@ -50,13 +50,42 @@ const Home = () => {
   };
   // --- END NEW ---
 
+  // const projects = [
+  //   {
+  //     id: 1,
+  //     title: 'E-commerce Platform',
+  //     description: 'Full-stack e-commerce solution with React, Node.js, and MongoDB',
+  //     tags: ['React', 'Node.js', 'MongoDB', 'Redux'],
+  //     image: 'https://via.placeholder.com/400x225/FFA500/FFFFFF?text=E-commerce',
+  //     githubLink: '#',
+  //     liveLink: '#'
+  //   },
+  //   {
+  //     id: 2,
+  //     title: 'Task Management App',
+  //     description: 'Real-time collaborative task management application',
+  //     tags: ['React', 'Firebase', 'Material UI', 'TypeScript'],
+  //     image: 'https://via.placeholder.com/400x225/4CAF50/FFFFFF?text=Task+App',
+  //     githubLink: '#',
+  //     liveLink: '#'
+  //   },
+  //   {
+  //     id: 3,
+  //     title: 'Portfolio Website',
+  //     description: 'Interactive portfolio website with animations',
+  //     tags: ['Next.js', 'CSS Animations', 'Responsive Design'],
+  //     image: 'https://via.placeholder.com/400x225/FFFFFF/FFA500?text=Portfolio',
+  //     githubLink: '#',
+  //     liveLink: '#'
+  //   }
+  // ];
   const projects = [
     {
       id: 1,
       title: 'E-commerce Platform',
       description: 'Full-stack e-commerce solution with React, Node.js, and MongoDB',
       tags: ['React', 'Node.js', 'MongoDB', 'Redux'],
-      image: 'https://via.placeholder.com/400x225/FFA500/FFFFFF?text=E-commerce',
+      image: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=225&q=80',
       githubLink: '#',
       liveLink: '#'
     },
@@ -65,7 +94,7 @@ const Home = () => {
       title: 'Task Management App',
       description: 'Real-time collaborative task management application',
       tags: ['React', 'Firebase', 'Material UI', 'TypeScript'],
-      image: 'https://via.placeholder.com/400x225/4CAF50/FFFFFF?text=Task+App',
+      image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=225&q=80',
       githubLink: '#',
       liveLink: '#'
     },
@@ -74,7 +103,7 @@ const Home = () => {
       title: 'Portfolio Website',
       description: 'Interactive portfolio website with animations',
       tags: ['Next.js', 'CSS Animations', 'Responsive Design'],
-      image: 'https://via.placeholder.com/400x225/FFFFFF/FFA500?text=Portfolio',
+      image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=225&q=80',
       githubLink: '#',
       liveLink: '#'
     }
@@ -832,13 +861,13 @@ const Home = () => {
               transition={{ delay: 0.3 }}
             >
               {/* You can add social media icons/links here */}
-              <a href="/https://anand-info.netlify.app/" className="text-green-200 hover:text-white transition-colors duration-300">
+              <a href="/https://www.linkedin.com/in/anand-kumar-shaw-507b3b310/" className="text-green-200 hover:text-white transition-colors duration-300">
                 LinkedIn
               </a>
-              <a href="/https://anand-info.netlify.app/" className="text-green-200 hover:text-white transition-colors duration-300">
+              <a href="/https://github.com/AKSHAW6299" className="text-green-200 hover:text-white transition-colors duration-300">
                 GitHub
               </a>
-              <a href="/https://anand-info.netlify.app/" className="text-green-200 hover:text-white transition-colors duration-300">
+              <a href="/https://www.linkedin.com/in/anand-kumar-shaw-507b3b310/" className="text-green-200 hover:text-white transition-colors duration-300">
                 Twitter
               </a>
             </motion.div>
