@@ -588,7 +588,7 @@ const Home = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 bg-green-50">
+      <section id="skills" className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
         <div className="container mx-auto px-6">
           <motion.div
             className="text-center mb-16"
@@ -597,61 +597,80 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
-            <div className="w-20 h-1 bg-orange-500 mx-auto"></div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">My Core Tech Stack</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Technologies I work with daily and master continuously</p>
+            <div className="w-20 h-1.5 bg-gradient-to-r from-orange-500 to-green-500 mx-auto mt-4 rounded-full"></div>
           </motion.div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skills.map((skill, index) => (
+            {[
+              { name: "JavaScript", level: 95, icon: "JS", color: "from-yellow-400 to-yellow-600" },
+              { name: "React JS", level: 90, icon: "⚛️", color: "from-blue-400 to-blue-600" },
+              { name: "Node.js", level: 88, icon: "🟢", color: "from-green-500 to-green-700" },
+              { name: "Express.js", level: 85, icon: "🚀", color: "from-gray-400 to-gray-600" },
+              { name: "SQL & MongoDB", level: 82, icon: "🗃️", color: "from-emerald-400 to-emerald-600" },
+              { name: "Next.js", level: 87, icon: "⏭️", color: "from-black to-gray-700" },
+            ].map((skill, index) => (
               <motion.div
                 key={skill.name}
-                className="bg-white p-6 rounded-xl shadow-md relative group overflow-hidden"
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
+                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                custom={index}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                {/* Shine effect (Existing) */}
+                {/* Animated background */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: '100%' }}
-                  transition={{ ease: "linear", duration: 0.8, repeat: Infinity, repeatDelay: 1 }}
-                  style={{ willChange: 'transform' }}
+                  className={`absolute inset-0 bg-gradient-to-r ${skill.color} opacity-10 group-hover:opacity-20 transition-opacity duration-500 -z-0`}
+                  initial={{ scale: 0.8 }}
+                  whileHover={{ scale: 1 }}
                 />
-                <div className="flex items-center mb-4">
-                  <div className="text-2xl mr-3 text-green-600">•</div>
-                  <h3 className="text-xl font-semibold">{skill.name}</h3>
+
+                <div className="flex items-center mb-4 z-10 relative">
+                  <div className="text-3xl mr-3">{skill.icon}</div>
+                  <h3 className="text-xl font-bold text-gray-800">{skill.name}</h3>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-2.5">
+
+                <div className="w-full bg-gray-200 rounded-full h-3 z-10 relative overflow-hidden">
                   <motion.div
-                    className="h-2.5 rounded-full"
+                    className={`h-full rounded-full bg-gradient-to-r ${skill.color}`}
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1, delay: index * 0.1 }}
-                    // New: Gradient flow on hover
+                    transition={{ duration: 1, delay: index * 0.1, type: "spring" }}
+                    whileHover={{
+                      backgroundPosition: ['0%', '100%', '0%'],
+                      transition: {
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "linear"
+                      }
+                    }}
                     style={{
                       backgroundSize: '200% 100%',
-                      backgroundImage: 'linear-gradient(to right, #fb923c, #fb923c 50%, #22c55e 50%, #22c55e)',
-                    }}
-                    whileHover={{
-                      backgroundPosition: '-100% 0', // Shifts the gradient
-                      transition: {
-                        duration: 1.5,
-                        ease: "linear",
-                        repeat: Infinity,
-                      },
                     }}
                   />
                 </div>
-                <div className="flex justify-between mt-2 text-sm text-gray-600">
-                  <span>Beginner</span>
-                  <span>Expert</span>
+
+                <div className="flex justify-between mt-3 text-sm font-medium text-gray-600 z-10 relative">
+                  <span>Basic</span>
+                  <span className="flex items-center">
+                    <span className="mr-1">{skill.level}%</span>
+                    {skill.level > 85 ? "Expert" : skill.level > 70 ? "Advanced" : "Intermediate"}
+                  </span>
                 </div>
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            className="mt-16 text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            <p className="text-gray-600 italic">"The skill levels represent my confidence and experience with each technology."</p>
+          </motion.div>
         </div>
       </section>
 
