@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ProfilePic from '../images/Profile_PIC2.jpg'
+
 
 const Home = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -27,7 +29,7 @@ const Home = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -39,6 +41,14 @@ const Home = () => {
       setIsMenuOpen(false); // Close mobile menu after clicking a link
     }
   };
+
+  // --- NEW: Form submission handler ---
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevents the default form submission behavior (page reload)
+    alert('Thank you for your message! I will get back to you soon.'); // Your alert message
+    event.target.reset(); // Resets all form fields
+  };
+  // --- END NEW ---
 
   const projects = [
     {
@@ -73,13 +83,13 @@ const Home = () => {
   const skills = [
     { name: 'React', level: 95 },
     { name: 'JavaScript', level: 90 },
-    { name: 'TypeScript', level: 85 },
     { name: 'Node.js', level: 80 },
     { name: 'CSS/SCSS', level: 85 },
     { name: 'Redux', level: 75 },
     { name: 'Next.js', level: 70 },
     { name: 'Git', level: 85 },
-    { name: 'GraphQL', level: 65 }
+    { name: 'GraphQL', level: 65 },
+    { name: 'TypeScript', level: 85 },
   ];
 
   // Animation variants
@@ -174,7 +184,7 @@ const Home = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            Projects & Passions
+            Explore My Work
           </motion.div>
           <div className="hidden md:flex space-x-8">
             {['home', 'about', 'skills', 'projects', 'contact'].map((item) => (
@@ -348,7 +358,8 @@ const Home = () => {
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   <img
-                    src="https://via.placeholder.com/400x400/4CAF50/FFFFFF?text=Developer"
+                    // src="https://via.placeholder.com/400x400/4CAF50/FFFFFF?text=Developer"
+                    src={ProfilePic}
                     alt="Developer"
                     className="w-full h-full object-cover"
                   />
@@ -443,7 +454,7 @@ const Home = () => {
                     transition={{ ease: "linear", duration: 0.8, repeat: Infinity, repeatDelay: 1 }}
                     style={{ willChange: 'transform' }}
                   />
-                  <h4 className="font-semibold text-lg mb-2">5+</h4>
+                  <h4 className="font-semibold text-lg mb-2">3+</h4>
                   <p className="text-gray-600">Projects Completed</p>
                 </motion.div>
                 <motion.div
@@ -458,7 +469,7 @@ const Home = () => {
                     transition={{ ease: "linear", duration: 0.8, repeat: Infinity, repeatDelay: 1 }}
                     style={{ willChange: 'transform' }}
                   />
-                  <h4 className="font-semibold text-lg mb-2">React</h4>
+                  <h4 className="font-semibold text-lg mb-2">React JS, JavaScript, Node.js</h4>
                   <p className="text-gray-600">Specialization</p>
                 </motion.div>
                 <motion.div
@@ -473,7 +484,7 @@ const Home = () => {
                     transition={{ ease: "linear", duration: 0.8, repeat: Infinity, repeatDelay: 1 }}
                     style={{ willChange: 'transform' }}
                   />
-                  <h4 className="font-semibold text-lg mb-2">Full time or, Remote</h4>
+                  <h4 className="font-semibold text-lg mb-2">Full Time or, Remote</h4>
                   <p className="text-gray-600">Work Preference</p>
                 </motion.div>
               </div>
@@ -668,9 +679,15 @@ const Home = () => {
               <div className="space-y-4">
                 <div className="flex items-center">
                   <svg className="text-orange-500 w-5 h-5 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span>+91 6291312929</span> {/* Replace with your actual phone number */}
+                </div>
+                <div className="flex items-center">
+                  <svg className="text-orange-500 w-5 h-5 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <span>contact@reactdev.com</span>
+                  <span>akshaw5999@gmail.com</span>
                 </div>
                 <div className="flex space-x-4 mt-6">
                   <motion.a
@@ -710,7 +727,8 @@ const Home = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <form>
+              {/* --- MODIFIED: Added onSubmit handler --- */}
+              <form onSubmit={handleSubmit}>
                 <motion.div
                   className="mb-6"
                   initial={{ opacity: 0 }}
@@ -781,6 +799,7 @@ const Home = () => {
                   Send Message
                 </motion.button>
               </form>
+              {/* --- END MODIFIED --- */}
             </motion.div>
           </div>
         </div>
@@ -801,7 +820,7 @@ const Home = () => {
                 className="text-2xl font-bold text-orange-300 mb-2"
                 whileHover={{ scale: 1.05 }}
               >
-                ReactDev
+                Anand Kumar Shaw
               </motion.div>
               <p className="text-green-200">Building exceptional digital experiences</p>
             </div>
@@ -831,7 +850,7 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
           >
-            &copy; {new Date().getFullYear()} ReactDev. All rights reserved.
+            &copy; {new Date().getFullYear()} Anand. All rights reserved.
           </motion.p>
         </div>
       </footer>
