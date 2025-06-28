@@ -121,11 +121,11 @@ const Home = () => {
   const typewriterVariants = {
     hidden: { width: 0 },
     visible: {
-      width: "100%", // Animate width to simulate typing
+      width: "100%", //
       transition: {
         duration: 2,
         ease: "linear",
-        delay: 0.8, // Start after "Hi, I'm Anand Kumar Shaw"
+        delay: 0.8, //
       },
     },
   };
@@ -286,7 +286,7 @@ const Home = () => {
             initial="hidden"
             animate="visible"
           >
-            <motion.div className="md:w-1/2 mb-10 md:mb-0" variants={itemVariants}>
+            <motion.div className="md:w-1/2 mb-10 md:mb-0 sm:mt-20" variants={itemVariants}>
               <motion.h1
                 className="text-4xl md:text-6xl font-bold mb-6"
                 variants={textVariants}
@@ -675,225 +675,234 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
+      <section id="projects" className="py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
-            <div className="w-20 h-1 bg-orange-500 mx-auto"></div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
+              My Projects
+            </h2>
+            <motion.div
+              className="w-16 h-1 bg-gradient-to-r from-orange-500 to-green-500 mx-auto rounded-full"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            />
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition relative group"
-                initial={{ opacity: 0, y: 50 }}
+                className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 relative group"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
               >
-                {/* Shine effect (Existing) */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: '100%' }}
-                  transition={{ ease: "linear", duration: 0.8, repeat: Infinity, repeatDelay: 1 }}
-                  style={{ willChange: 'transform' }}
-                />
-                <motion.div
-                  className="h-48 overflow-hidden"
-                  style={{ perspective: 1000 }} // For 3D transforms
-                >
+                <div className="h-48 overflow-hidden relative">
                   <motion.img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition duration-500"
-                    // New: Parallax effect on image
-                    whileHover={{
-                      scale: 1.1,
-                      rotateX: 5,
-                      rotateY: 5,
-                      transition: { duration: 0.3 }
-                    }}
-                    style={{ transformOrigin: 'center center' }}
+                    className="w-full h-full object-cover"
+                    initial={{ scale: 1 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                    loading="lazy"
                   />
-                </motion.div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-gray-600 mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag) => (
-                      <motion.span
-                        key={tag}
-                        className="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full"
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <div className="flex gap-3">
+                      <motion.a
+                        href={project.liveLink}
+                        className="bg-orange-500 text-white px-4 py-2 rounded text-sm font-medium"
                         whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        Live Demo
+                      </motion.a>
+                      <motion.a
+                        href={project.githubLink}
+                        className="bg-gray-800 text-white px-4 py-2 rounded text-sm font-medium"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        Code
+                      </motion.a>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                  <p className="text-gray-600 text-sm mb-3">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded"
                       >
                         {tag}
-                      </motion.span>
+                      </span>
                     ))}
                   </div>
-                  {/* New: Overlay with links */}
-                  <motion.div
-                    className="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center space-y-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                  >
-                    <motion.a
-                      href={project.liveLink}
-                      className="text-white bg-orange-500 px-4 py-2 rounded-lg hover:bg-orange-600 transition font-semibold"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      Live Demo
-                    </motion.a>
-                    <motion.a
-                      href={project.githubLink}
-                      className="text-white bg-gray-700 px-4 py-2 rounded-lg hover:bg-gray-800 transition font-semibold"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      GitHub
-                    </motion.a>
-                  </motion.div>
                 </div>
               </motion.div>
             ))}
           </div>
+
           <motion.div
-            className="text-center mt-12"
+            className="text-center mt-10"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <motion.button
-              className="relative bg-gradient-to-r from-orange-500 to-green-500 text-white px-6 py-3 rounded-lg font-medium shadow-lg
-                         before:content-[''] before:absolute before:inset-0 before:p-[2px] before:rounded-lg before:bg-gradient-to-r before:from-green-500 before:to-orange-500 before:z-[-1]
-                         before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300"
-              whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
-              whileTap={{ scale: 0.95 }}
+            <motion.a
+              href="#"
+              className="inline-block bg-gradient-to-r from-orange-500 to-green-500 text-white px-6 py-2 rounded-md font-medium shadow"
+              whileHover={{ scale: 1.03, boxShadow: "0 5px 15px rgba(0,0,0,0.1)" }}
+              whileTap={{ scale: 0.98 }}
             >
               View All Projects
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-green-50">
-        <div className="container mx-auto px-6">
+      <section id="contact" className="py-16 bg-gradient-to-br from-green-50 to-blue-50">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
-            <div className="w-20 h-1 bg-orange-500 mx-auto"></div>
-          </motion.div>
-          <div className="flex flex-col md:flex-row">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
+              Get In Touch
+            </h2>
             <motion.div
-              className="md:w-1/2 mb-10 md:mb-0 md:pr-10"
-              initial={{ opacity: 0, x: -50 }}
+              className="w-16 h-1 bg-gradient-to-r from-orange-500 to-green-500 mx-auto rounded-full"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            />
+          </motion.div>
+
+          <div className="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto">
+            <motion.div
+              className="lg:w-1/2 bg-white p-6 rounded-xl shadow-sm"
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
             >
-              <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
-              <p className="text-gray-600 mb-8">
+              <h3 className="text-xl font-semibold mb-5">Contact Information</h3>
+              <p className="text-gray-600 mb-6">
                 Feel free to reach out if you're looking for a developer, have a question, or just want to connect.
               </p>
+
               <div className="space-y-4">
-                <div className="flex items-center">
-                  <svg className="text-orange-500 w-5 h-5 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  <span>+91 6291312929</span> {/* Replace with your actual phone number */}
+                <div className="flex items-start">
+                  <div className="bg-orange-100 p-2 rounded-full mr-4">
+                    <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-medium">Phone</h4>
+                    <p className="text-gray-600">+91 6291312929</p>
+                  </div>
                 </div>
-                <div className="flex items-center">
-                  <svg className="text-orange-500 w-5 h-5 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <span>akshaw5999@gmail.com</span>
+
+                <div className="flex items-start">
+                  <div className="bg-green-100 p-2 rounded-full mr-4">
+                    <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-medium">Email</h4>
+                    <p className="text-gray-600">akshaw5999@gmail.com</p>
+                  </div>
                 </div>
-                <div className="flex space-x-4 mt-6">
+              </div>
+
+              <div className="mt-8">
+                <h4 className="font-medium mb-4">Connect with me</h4>
+                <div className="flex gap-3">
                   <motion.a
                     href="https://github.com/AKSHAW6299"
-                    className="bg-white p-3 rounded-full text-gray-700 shadow-md"
-                    whileHover={{ y: -5, backgroundColor: "#4CAF50", color: "#fff" }}
+                    className="bg-gray-800 text-white p-2 rounded-full"
+                    whileHover={{ y: -3 }}
+                    whileTap={{ scale: 0.9 }}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                   </motion.a>
-                  {/* You can add more social media links here */}
+                  {/* Add other social links similarly */}
                 </div>
               </div>
             </motion.div>
+
             <motion.div
-              className="md:w-1/2 bg-white p-8 rounded-xl shadow-lg"
-              initial={{ opacity: 0, x: 50 }}
+              className="lg:w-1/2 bg-white p-6 rounded-xl shadow-sm"
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
             >
-              <h3 className="text-2xl font-semibold mb-6">Send Me a Message</h3>
+              <h3 className="text-xl font-semibold mb-5">Send Me a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Name</label>
-                  <motion.input
+                  <label htmlFor="name" className="block text-sm font-medium mb-1">Name</label>
+                  <input
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-400 focus:border-transparent transition"
                     required
-                    whileFocus={{ borderColor: '#22c55e', boxShadow: '0 0 0 3px rgba(34, 197, 94, 0.2)' }}
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email</label>
-                  <motion.input
+                  <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
+                  <input
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-400 focus:border-transparent transition"
                     required
-                    whileFocus={{ borderColor: '#22c55e', boxShadow: '0 0 0 3px rgba(34, 197, 94, 0.2)' }}
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Message</label>
-                  <motion.textarea
+                  <label htmlFor="message" className="block text-sm font-medium mb-1">Message</label>
+                  <textarea
                     id="message"
                     name="message"
-                    rows="5"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    rows="4"
+                    className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-400 focus:border-transparent transition"
                     required
-                    whileFocus={{ borderColor: '#22c55e', boxShadow: '0 0 0 3px rgba(34, 197, 94, 0.2)' }}
-                  ></motion.textarea>
+                  />
                 </div>
                 <motion.button
                   type="submit"
-                  className="relative bg-gradient-to-r from-orange-500 to-green-500 text-white px-6 py-3 rounded-lg font-medium shadow-lg
-                             before:content-[''] before:absolute before:inset-0 before:p-[2px] before:rounded-lg before:bg-gradient-to-r before:from-green-500 before:to-orange-500 before:z-[-1]
-                             before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300"
-                  whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(0,0,0,0.1)", rotate: [0, 5, -5, 5, 0] }} // Wiggle effect
-                  transition={{ rotate: { duration: 0.3, ease: "easeInOut" } }} // Specific transition for rotate
-                  whileTap={{ scale: 0.95 }}
+                  className="w-full bg-gradient-to-r from-orange-500 to-green-500 text-white py-2 px-4 rounded font-medium shadow"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   Send Message
                 </motion.button>
@@ -915,7 +924,7 @@ const Home = () => {
           <p>&copy; {new Date().getFullYear()} Anand Kumar Shaw. All rights reserved.</p>
           <div className="flex justify-center space-x-4 mt-4">
             <motion.a
-              href="https://linkedin.com/in/yourprofile" // Replace with actual LinkedIn
+              href="https://www.linkedin.com/in/anand-kumar-shaw-507b3b310/" // Replace with actual LinkedIn
               className="text-gray-400 hover:text-white"
               whileHover={{ scale: 1.2 }}
               target="_blank"
