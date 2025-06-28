@@ -78,21 +78,6 @@ const Home = () => {
     },
   ];
 
-  const skills = [
-    { name: 'React', level: 95 },
-    { name: 'JavaScript', level: 90 },
-    { name: 'Node.js', level: 80 },
-    { name: 'CSS/SCSS', level: 85 },
-    { name: 'Redux', level: 75 },
-    { name: 'Next.js', level: 70 },
-    { name: 'Git', level: 85 },
-    { name: 'GraphQL', level: 65 },
-    { name: 'TypeScript', level: 85 },
-    { name: 'Tailwind CSS', level: 90 },
-    { name: 'MongoDB', level: 70 },
-    { name: 'Express.js', level: 75 },
-  ];
-
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -111,18 +96,6 @@ const Home = () => {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const fadeInUp = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
         ease: "easeOut"
       }
     }
