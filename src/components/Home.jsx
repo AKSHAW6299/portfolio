@@ -507,7 +507,7 @@ const Home = () => {
                 <div className="relative bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
                   <h3 className="text-2xl font-bold mb-6 text-gray-800 flex items-center">
                     <span className="w-4 h-4 bg-gradient-to-r from-orange-500 to-green-500 rounded-full mr-3"></span>
-                    Who I Am
+                    Who I Am?
                   </h3>
 
                   <div className="space-y-4 text-gray-600">
@@ -634,10 +634,10 @@ const Home = () => {
             {[
               { name: "JavaScript", level: 95, icon: "JS", color: "from-yellow-400 to-yellow-600" },
               { name: "React JS", level: 90, icon: "⚛️", color: "from-blue-400 to-blue-600" },
-              { name: "Node.js", level: 88, icon: "🟢", color: "from-green-500 to-green-700" },
-              { name: "Express.js", level: 85, icon: "🚀", color: "from-gray-400 to-gray-600" },
-              { name: "SQL & MongoDB", level: 82, icon: "🗃️", color: "from-emerald-400 to-emerald-600" },
-              { name: "Next.js", level: 87, icon: "⏭️", color: "from-black to-gray-700" },
+              { name: "Node.js", level: 88, icon: "N", color: "from-green-500 to-green-700" },
+              { name: "Express.js", level: 85, icon: "EX", color: "from-gray-400 to-gray-600" },
+              { name: "SQL & MongoDB", level: 82, icon: "🏛️", color: "from-emerald-400 to-emerald-600" },
+              { name: "Next.js", level: 87, icon: "🅽 ", color: "from-black to-gray-700" },
             ].map((skill, index) => (
               <motion.div
                 key={skill.name}
