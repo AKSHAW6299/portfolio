@@ -382,32 +382,91 @@ const Home = () => {
             <motion.div
               className="md:w-1/2 flex justify-center"
               variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              whileHover={{ scale: 1.02 }}
             >
               <div className="relative">
+                {/* Main Profile Image */}
                 <motion.div
-                  className="w-64 h-64 md:w-80 md:h-80 bg-green-100 rounded-full flex items-center justify-center overflow-hidden shadow-xl"
+                  className="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-green-100 to-blue-100 rounded-full flex items-center justify-center overflow-hidden shadow-2xl border-4 border-white/20"
                   whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                 >
-                  <img
+                  <motion.img
                     src={ProfilePic}
                     alt="Developer"
                     className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 300 }}
                   />
                 </motion.div>
+
+                {/* Rotating SVG element */}
                 <motion.div
                   className="absolute -top-10 -left-10 -z-10"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 >
-                  <svg className="text-green-200 w-24 h-24 opacity-60" viewBox="0 0 24 24">
+                  <svg className="text-green-300 w-24 h-24 opacity-80" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z" />
                   </svg>
                 </motion.div>
+
+                {/* Second rotating element (opposite direction) */}
                 <motion.div
-                  className="absolute -bottom-5 -right-5 bg-orange-400 rounded-full w-16 h-16"
+                  className="absolute -bottom-12 -right-12 -z-10"
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                >
+                  <svg className="text-blue-300 w-32 h-32 opacity-60" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z" />
+                  </svg>
+                </motion.div>
+
+                {/* Pulsing orange dot */}
+                <motion.div
+                  className="absolute -bottom-5 -right-5 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full w-16 h-16 shadow-lg"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    rotate: [0, 10, -5, 0]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+
+                {/* Floating particles */}
+                {[0, 1, 2, 3].map((i) => (
+                  <motion.div
+                    key={i}
+                    className={`absolute rounded-full bg-white/80 ${i % 2 ? 'w-2 h-2' : 'w-3 h-3'}`}
+                    style={{
+                      top: `${Math.random() * 30 + 5}%`,
+                      left: `${Math.random() * 30 + 5}%`,
+                    }}
+                    animate={{
+                      y: [0, -15, 0],
+                      opacity: [0.6, 1, 0.6],
+                    }}
+                    transition={{
+                      duration: 3 + Math.random() * 3,
+                      repeat: Infinity,
+                      delay: i * 0.5,
+                    }}
+                  />
+                ))}
+
+                {/* Glow effect */}
+                <motion.div
+                  className="absolute inset-0 rounded-full bg-blue-400/20 blur-xl -z-20"
                   animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
+                  transition={{ duration: 4, repeat: Infinity }}
                 />
               </div>
             </motion.div>
