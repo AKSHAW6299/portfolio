@@ -691,7 +691,7 @@ const Home = () => {
                 </div>
                 <div className="flex space-x-4 mt-6">
                   <motion.a
-                    href="#"
+                    href="/https://anand-info.netlify.app/"
                     className="bg-white p-3 rounded-full text-gray-700 shadow-md"
                     whileHover={{ y: -5, backgroundColor: "#4CAF50", color: "#fff" }}
                   >
@@ -700,7 +700,7 @@ const Home = () => {
                     </svg>
                   </motion.a>
                   <motion.a
-                    href="#"
+                    href="/https://anand-info.netlify.app/"
                     className="bg-white p-3 rounded-full text-gray-700 shadow-md"
                     whileHover={{ y: -5, backgroundColor: "#4CAF50", color: "#fff" }}
                   >
@@ -709,7 +709,7 @@ const Home = () => {
                     </svg>
                   </motion.a>
                   <motion.a
-                    href="#"
+                    href="/https://anand-info.netlify.app/"
                     className="bg-white p-3 rounded-full text-gray-700 shadow-md"
                     whileHover={{ y: -5, backgroundColor: "#4CAF50", color: "#fff" }}
                   >
@@ -832,13 +832,13 @@ const Home = () => {
               transition={{ delay: 0.3 }}
             >
               {/* You can add social media icons/links here */}
-              <a href="#" className="text-green-200 hover:text-white transition-colors duration-300">
+              <a href="/https://anand-info.netlify.app/" className="text-green-200 hover:text-white transition-colors duration-300">
                 LinkedIn
               </a>
-              <a href="#" className="text-green-200 hover:text-white transition-colors duration-300">
+              <a href="/https://anand-info.netlify.app/" className="text-green-200 hover:text-white transition-colors duration-300">
                 GitHub
               </a>
-              <a href="#" className="text-green-200 hover:text-white transition-colors duration-300">
+              <a href="/https://anand-info.netlify.app/" className="text-green-200 hover:text-white transition-colors duration-300">
                 Twitter
               </a>
             </motion.div>
