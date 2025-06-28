@@ -48,37 +48,7 @@ const Home = () => {
     alert('Thank you for your message! I will get back to you soon.'); // Your alert message
     event.target.reset(); // Resets all form fields
   };
-  // --- END NEW ---
 
-  // const projects = [
-  //   {
-  //     id: 1,
-  //     title: 'E-commerce Platform',
-  //     description: 'Full-stack e-commerce solution with React, Node.js, and MongoDB',
-  //     tags: ['React', 'Node.js', 'MongoDB', 'Redux'],
-  //     image: 'https://via.placeholder.com/400x225/FFA500/FFFFFF?text=E-commerce',
-  //     githubLink: '#',
-  //     liveLink: '#'
-  //   },
-  //   {
-  //     id: 2,
-  //     title: 'Task Management App',
-  //     description: 'Real-time collaborative task management application',
-  //     tags: ['React', 'Firebase', 'Material UI', 'TypeScript'],
-  //     image: 'https://via.placeholder.com/400x225/4CAF50/FFFFFF?text=Task+App',
-  //     githubLink: '#',
-  //     liveLink: '#'
-  //   },
-  //   {
-  //     id: 3,
-  //     title: 'Portfolio Website',
-  //     description: 'Interactive portfolio website with animations',
-  //     tags: ['Next.js', 'CSS Animations', 'Responsive Design'],
-  //     image: 'https://via.placeholder.com/400x225/FFFFFF/FFA500?text=Portfolio',
-  //     githubLink: '#',
-  //     liveLink: '#'
-  //   }
-  // ];
   const projects = [
     {
       id: 1,
