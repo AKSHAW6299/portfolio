@@ -720,7 +720,7 @@ const Home = () => {
                 </div>
                 <div className="flex space-x-4 mt-6">
                   <motion.a
-                    href="/https://anand-info.netlify.app/"
+                    href="https://github.com/AKSHAW6299"
                     className="bg-white p-3 rounded-full text-gray-700 shadow-md"
                     whileHover={{ y: -5, backgroundColor: "#4CAF50", color: "#fff" }}
                   >
@@ -729,7 +729,7 @@ const Home = () => {
                     </svg>
                   </motion.a>
                   <motion.a
-                    href="/https://anand-info.netlify.app/"
+                    href="https://www.linkedin.com/in/anand-kumar-shaw-507b3b310/"
                     className="bg-white p-3 rounded-full text-gray-700 shadow-md"
                     whileHover={{ y: -5, backgroundColor: "#4CAF50", color: "#fff" }}
                   >
@@ -738,7 +738,7 @@ const Home = () => {
                     </svg>
                   </motion.a>
                   <motion.a
-                    href="/https://anand-info.netlify.app/"
+                    href="https://www.linkedin.com/in/anand-kumar-shaw-507b3b310/"
                     className="bg-white p-3 rounded-full text-gray-700 shadow-md"
                     whileHover={{ y: -5, backgroundColor: "#4CAF50", color: "#fff" }}
                   >
