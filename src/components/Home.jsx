@@ -475,7 +475,7 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto px-6">
           <motion.div
             className="text-center mb-16"
@@ -484,104 +484,132 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
-            <div className="w-20 h-1 bg-orange-500 mx-auto"></div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
+              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-green-500">Me</span>
+            </h2>
+            <div className="w-20 h-1.5 bg-gradient-to-r from-orange-500 to-green-500 mx-auto rounded-full"></div>
           </motion.div>
-          <div className="flex flex-col md:flex-row items-center">
+
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            {/* Left Column - Text Content */}
             <motion.div
-              className="md:w-1/2 mb-10 md:mb-0 md:pr-10"
+              className="lg:w-1/2"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h3 className="text-2xl font-semibold mb-4">Who I Am</h3>
-              <p className="text-gray-600 mb-4">
-                I'm a passionate React developer with approximately 3 years of experience building modern web applications.
-                I specialize in creating responsive, accessible, and performant user interfaces.
-              </p>
-              <p className="text-gray-600 mb-4">
-                My approach combines clean code principles with attention to design details, resulting in
-                applications that are both technically robust and visually appealing.
-              </p>
-              <p className="text-gray-600">
-                When I'm not coding, you can find me contributing to open-source projects, learning new
-                technologies, or sharing knowledge with the developer community.
-              </p>
+              <div className="relative">
+                {/* Decorative elements */}
+                <div className="absolute -top-6 -left-6 w-16 h-16 bg-green-100 rounded-full opacity-70 blur-xl"></div>
+                <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-orange-100 rounded-full opacity-70 blur-xl"></div>
+
+                <div className="relative bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                  <h3 className="text-2xl font-bold mb-6 text-gray-800 flex items-center">
+                    <span className="w-4 h-4 bg-gradient-to-r from-orange-500 to-green-500 rounded-full mr-3"></span>
+                    Who I Am
+                  </h3>
+
+                  <div className="space-y-4 text-gray-600">
+                    <p className="leading-relaxed">
+                      I'm a <span className="font-semibold text-gray-800">passionate React developer</span> with <span className="font-semibold text-orange-500">3 years</span> of experience building modern, scalable web applications. I specialize in creating responsive, accessible, and high-performance user interfaces that deliver exceptional user experiences.
+                    </p>
+
+                    <p className="leading-relaxed">
+                      My approach combines <span className="font-semibold text-gray-800">clean code principles</span> with an eye for <span className="font-semibold text-gray-800">design aesthetics</span>, resulting in applications that are both technically robust and visually stunning.
+                    </p>
+
+                    <p className="leading-relaxed">
+                      Beyond coding, I'm an active contributor to <span className="font-semibold text-green-500">open-source projects</span> and enjoy sharing knowledge through tech blogs and community forums. I thrive in collaborative environments and am always eager to learn and adopt new technologies.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </motion.div>
+
+            {/* Right Column - Stats Cards */}
             <motion.div
-              className="md:w-1/2 bg-green-50 p-8 rounded-xl shadow-lg"
+              className="lg:w-1/2 w-full"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="grid grid-cols-2 gap-6">
-                <motion.div
-                  className="bg-white p-6 rounded-lg shadow-md relative group overflow-hidden"
-                  whileHover={{ y: -5, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
-                >
-                  {/* Modified Shine effect: continuous with faster repeat on hover */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {[
+                  {
+                    title: "Years Experience",
+                    value: "3",
+                    description: "Building web applications",
+                    icon: "📅",
+                    color: "bg-gradient-to-br from-orange-100 to-orange-50",
+                    border: "border-l-4 border-orange-500"
+                  },
+                  {
+                    title: "Projects Completed",
+                    value: `${projects.length}+`,
+                    description: "Across various industries",
+                    icon: "🚀",
+                    color: "bg-gradient-to-br from-blue-100 to-blue-50",
+                    border: "border-l-4 border-blue-500"
+                  },
+                  {
+                    title: "Specialization",
+                    value: "MERN Stack",
+                    description: "React, Node, Express, MongoDB",
+                    icon: "⚡",
+                    color: "bg-gradient-to-br from-purple-100 to-purple-50",
+                    border: "border-l-4 border-purple-500"
+                  },
+                  {
+                    title: "Work Preference",
+                    value: "Remote",
+                    description: "Open to full-time positions",
+                    icon: "🌍",
+                    color: "bg-gradient-to-br from-green-100 to-green-50",
+                    border: "border-l-4 border-green-500"
+                  }
+                ].map((stat, index) => (
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0"
-                    initial={{ x: '-100%' }}
-                    animate={{ x: '100%', opacity: 0.3 }} // Subtle opacity when not hovered
-                    transition={{ ease: "linear", duration: 2, repeat: Infinity }} // Continuous subtle shine
-                    whileHover={{ opacity: 1, transition: { ease: "linear", duration: 0.8, repeat: Infinity, repeatDelay: 0.5 } }} // More pronounced and faster on hover
-                    style={{ willChange: 'transform' }}
-                  />
-                  <h4 className="font-semibold text-lg mb-2">3</h4>
-                  <p className="text-gray-600">Years Experience</p>
-                </motion.div>
-                <motion.div
-                  className="bg-white p-6 rounded-lg shadow-md relative group overflow-hidden"
-                  whileHover={{ y: -5, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
-                >
-                  {/* Modified Shine effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0"
-                    initial={{ x: '-100%' }}
-                    animate={{ x: '100%', opacity: 0.3 }}
-                    transition={{ ease: "linear", duration: 2, repeat: Infinity }}
-                    whileHover={{ opacity: 1, transition: { ease: "linear", duration: 0.8, repeat: Infinity, repeatDelay: 0.5 } }}
-                    style={{ willChange: 'transform' }}
-                  />
-                  <h4 className="font-semibold text-lg mb-2">{projects.length}+</h4>
-                  <p className="text-gray-600">Projects Completed</p>
-                </motion.div>
-                <motion.div
-                  className="bg-white p-6 rounded-lg shadow-md relative group overflow-hidden"
-                  whileHover={{ y: -5, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
-                >
-                  {/* Modified Shine effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0"
-                    initial={{ x: '-100%' }}
-                    animate={{ x: '100%', opacity: 0.3 }}
-                    transition={{ ease: "linear", duration: 2, repeat: Infinity }}
-                    whileHover={{ opacity: 1, transition: { ease: "linear", duration: 0.8, repeat: Infinity, repeatDelay: 0.5 } }}
-                    style={{ willChange: 'transform' }}
-                  />
-                  <h4 className="font-semibold text-lg mb-2">React JS, JavaScript, Node.js</h4>
-                  <p className="text-gray-600">Specialization</p>
-                </motion.div>
-                <motion.div
-                  className="bg-white p-6 rounded-lg shadow-md relative group overflow-hidden"
-                  whileHover={{ y: -5, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
-                >
-                  {/* Modified Shine effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0"
-                    initial={{ x: '-100%' }}
-                    animate={{ x: '100%', opacity: 0.3 }}
-                    transition={{ ease: "linear", duration: 2, repeat: Infinity }}
-                    whileHover={{ opacity: 1, transition: { ease: "linear", duration: 0.8, repeat: Infinity, repeatDelay: 0.5 } }}
-                    style={{ willChange: 'transform' }}
-                  />
-                  <h4 className="font-semibold text-lg mb-2">Full Time or, Remote</h4>
-                  <p className="text-gray-600">Work Preference</p>
-                </motion.div>
+                    key={index}
+                    className={`p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 ${stat.color} ${stat.border} relative overflow-hidden group`}
+                    whileHover={{ y: -5 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    {/* Floating icon */}
+                    <div className="absolute -top-4 -right-4 text-6xl opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                      {stat.icon}
+                    </div>
+
+                    <div className="relative z-10">
+                      <div className="text-3xl font-bold mb-2 text-gray-800">{stat.value}</div>
+                      <h4 className="font-semibold text-lg mb-1 text-gray-700">{stat.title}</h4>
+                      <p className="text-sm text-gray-600">{stat.description}</p>
+                    </div>
+
+                    {/* Hover effect */}
+                    <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                  </motion.div>
+                ))}
               </div>
+
+              {/* Additional call to action */}
+              <motion.div
+                className="mt-8 bg-gradient-to-r from-orange-500 to-green-500 p-6 rounded-xl text-white shadow-lg"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+              >
+                <div className="flex items-center">
+                  <div className="text-2xl mr-4">💡</div>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Looking for a skilled developer?</h4>
+                    <p className="text-sm opacity-90">I'm currently available for new opportunities and would love to discuss how I can contribute to your team.</p>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
