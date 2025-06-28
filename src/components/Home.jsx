@@ -861,13 +861,13 @@ const Home = () => {
               transition={{ delay: 0.3 }}
             >
               {/* You can add social media icons/links here */}
-              <a href="https://www.linkedin.com/in/anand-kumar-shaw-507b3b310/" target='_blank' className="text-green-200 hover:text-white transition-colors duration-300">
+              <a href="https://www.linkedin.com/in/anand-kumar-shaw-507b3b310/" className="text-green-200 hover:text-white transition-colors duration-300">
                 LinkedIn
               </a>
-              <a href="https://github.com/AKSHAW6299" target='_blank' className="text-green-200 hover:text-white transition-colors duration-300">
+              <a href="https://github.com/AKSHAW6299" className="text-green-200 hover:text-white transition-colors duration-300">
                 GitHub
               </a>
-              <a href="https://www.linkedin.com/in/anand-kumar-shaw-507b3b310/" target='_blank' className="text-green-200 hover:text-white transition-colors duration-300">
+              <a href="https://www.linkedin.com/in/anand-kumar-shaw-507b3b310/" className="text-green-200 hover:text-white transition-colors duration-300">
                 Twitter
               </a>
             </motion.div>
