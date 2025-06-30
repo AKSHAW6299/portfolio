@@ -298,7 +298,7 @@ const Home = () => {
                     {word}
                   </motion.span>
                 ))}
-                <motion.span className="text-green-600 inline-block" variants={wordVariants}>Anand Kumar Shaw</motion.span>
+                <motion.span className="text-green-600 inline-block" variants={wordVariants}>Anand</motion.span>
               </motion.h1>
               {/* Typewriter effect for h2 */}
               <motion.h2
@@ -769,7 +769,8 @@ const Home = () => {
           >
             <motion.a
               href="#"
-              className="inline-block bg-gradient-to-r from-orange-500 to-green-500 text-white px-6 py-2 rounded-md font-medium shadow"
+              // className="inline-block bg-gradient-to-r from-orange-500 to-green-500 text-white px-6 py-2 rounded-md font-medium shadow"
+              className='w-full text-white py-2 px-4 rounded font-medium shadow bg-green-600'
               whileHover={{ scale: 1.03, boxShadow: "0 5px 15px rgba(0,0,0,0.1)" }}
               whileTap={{ scale: 0.98 }}
             >
@@ -900,7 +901,8 @@ const Home = () => {
                 </div>
                 <motion.button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-orange-500 to-green-500 text-white py-2 px-4 rounded font-medium shadow"
+                  // className="w-full bg-gradient-to-r from-orange-500 to-green-500 text-white py-2 px-4 rounded font-medium shadow"
+                  className='w-full text-white py-2 px-4 rounded font-medium shadow bg-green-600'
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
