@@ -56,7 +56,7 @@ const Home = () => {
       tags: ['React', 'Node.js', 'MongoDB', 'Redux', 'Express'],
       image: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=337&q=80',
       githubLink: 'https://github.com/yourusername/ecommerce-platform', // Replace with actual link
-      liveLink: 'https://ecommerce-demo.vercel.app/' // Replace with actual link
+      // liveLink: 'https://ecommerce-demo.vercel.app/' // Replace with actual link
     },
     {
       id: 2,
@@ -65,7 +65,7 @@ const Home = () => {
       tags: ['React', 'Firebase', 'Material UI', 'TypeScript', 'Firestore'],
       image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=337&q=80',
       githubLink: 'https://github.com/yourusername/task-manager', // Replace with actual link
-      liveLink: 'https://task-manager-demo.netlify.app/' // Replace with actual link
+      // liveLink: 'https://task-manager-demo.netlify.app/' // Replace with actual link
     },
     {
       id: 3,
@@ -74,7 +74,7 @@ const Home = () => {
       tags: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'Responsive Design'],
       image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=337&q=80',
       githubLink: 'https://github.com/yourusername/portfolio-website', // Replace with actual link
-      liveLink: 'https://your-portfolio-live.vercel.app/' // Replace with actual link
+      // liveLink: 'https://your-portfolio-live.vercel.app/' // Replace with actual link
     },
   ];
 
