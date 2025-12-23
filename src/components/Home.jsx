@@ -131,12 +131,6 @@ function App() {
     }
   };
 
-  const scaleIn = {
-    initial: { scale: 0.9, opacity: 0 },
-    animate: { scale: 1, opacity: 1 },
-    transition: { duration: 0.5 }
-  };
-
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans overflow-x-hidden">
       {/* Navigation */}
